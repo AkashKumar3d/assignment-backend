@@ -4,7 +4,7 @@ const NodeCache = require("node-cache");
 var MongoClient = mongodb.MongoClient;
 
 
-const mongouri = "mongodb://127.0.0.1:27017/Ecommerce";
+const mongouri = "mongodb://127.0.0.1:27017/";
 
 
 
@@ -43,7 +43,7 @@ exports.getInData = async (req, res, next) => {
       const db = client.db("Ecommerce");
       const collection = db.collection("graphdata");
       let data = await collection.find({}).toArray();
-  
+      // console.log(data, "finnaly ")
       res.status(201).json({
         success: true,
         data: data,
